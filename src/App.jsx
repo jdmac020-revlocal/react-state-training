@@ -7,9 +7,12 @@ import { getProducts } from "./services/productService";
 export default function App() {
   const [size, setSize] = useState("");
   const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getProducts("shoes").then((response) => setProducts(response));
+    getProducts("shoes")
+      .then((response) => setProducts(response))
+      .catch((e) => setError(e));
   }, [])
 
   // above is shorthand for...
@@ -17,6 +20,8 @@ export default function App() {
   // const size = state[0];
   // const setSize = state[1];
   
+  if (error) throw error;
+
   function renderProduct(p) {
     return (
       <div key={p.id} className="product">
