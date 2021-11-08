@@ -34,7 +34,11 @@ export default function Detail() {
         </select>
 
         <p>
-            <button className="btn btn-primary" onClick={() => navigate("/cart")}>
+            <button 
+                disabled={!sku} 
+                className="btn btn-primary" 
+                onClick={() => navigate("/cart")} 
+            >
                 Add to cart
             </button>
         </p>
