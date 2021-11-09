@@ -10,14 +10,22 @@ export default function useFetch(url) {
     useEffect(() => {
         async function init() {
           try {
+            console.log('In the hook ' + url) // the URL is coming back
             const response = await fetch(baseUrl + url);
+            console.log('after call?')
             if (response.ok) {
-                const json = await response.json();
-                setData(json);
+              console.log('yes ok') // we get an OK response from mock
+              const json = await response.json();
+              console.log(json) // we get an expected result back
+              setData(json);
+              console.log('set data') // no error on calling "setData"
+              console.log(data) // but data shows null
             } else {
+              console.log('else block ' + response)
                 throw response;
             }
           } catch (e) {
+            console.log(e)
             setError(e);
           } finally {
             setLoading(false);
