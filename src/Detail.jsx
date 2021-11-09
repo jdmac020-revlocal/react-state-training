@@ -5,11 +5,12 @@ import Spinner from "./Spinner";
 import PageNotFound from "./PageNotFound";
 
 export default function Detail(props) {
+    console.log('hi')
     const { id } = useParams();
     const navigate = useNavigate();
     const [sku, setSku] = useState("");
     const { data: product, loading, error } = useFetch("products/" + id);
-
+    console.log(product);
     if (loading) return <Spinner />;
     if (!product) return <PageNotFound />;
     if (error) throw error;
