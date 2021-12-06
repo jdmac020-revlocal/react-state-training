@@ -2,3 +2,8 @@ body {
     display: grid;
     grid-template-columns: 15em auto 15em;
 }
+
+header, footer {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
