@@ -1,0 +1,23 @@
+body {
+    margin: 1em;
+    display: grid;
+    grid: auto-flow min-content / repeat(12, 1fr);
+    gap: 1em;
+}
+
+header, footer {
+    grid-column: 1 / -1;
+}
+
+aside, nav {
+    grid-column: 1 / 5;
+}
+
+main {
+    grid-column: 5 / -1;
+    grid-row: 2 / 4;
+}
+
+body > img {
+    grid-column: span 3;
+}
